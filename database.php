@@ -14,7 +14,7 @@
     function addStudent($idnumber,$name){
         $db = database();
         $sql = "INSERT INTO attendance (idnumber, name) VALUES(?,?)";
-        $row = $db->prepare($sql);
+        $row = $db->prepare($sql); 
         $row->execute(array($idnumber,$name));
         $db = null;
     }
@@ -32,6 +32,30 @@
     function deleteStudent($id){
         $db = database();
         $sql = "DELETE FROM attendance where id = ?";
+        $row = $db->prepare($sql);
+        $row->execute(array($id));
+        $db = null;
+    }
+
+    function editStudent($id,$name,$idnumber){
+        $db = database();
+        $sql = "UPDATE attendance set  idnumber = ?, name = ? where id = ?";
+        $row = $db->prepare($sql);
+        $row->execute(array($idnumber,$name,$id));
+        $db = null;
+    }
+
+    function studentPresent($id){
+        $db = database();
+        $sql = "UPDATE attendance set status = 'PRESENT' where id = ?";
+        $row = $db->prepare($sql);
+        $row->execute(array($id));
+        $db = null;
+    }
+
+    function studentAbsent($id){
+        $db = database();
+        $sql = "UPDATE attendance set status = 'ABSENT' where id = ?";
         $row = $db->prepare($sql);
         $row->execute(array($id));
         $db = null;
