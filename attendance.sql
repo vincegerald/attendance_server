@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 14, 2018 at 09:18 PM
+-- Generation Time: Oct 15, 2018 at 07:12 PM
 -- Server version: 10.1.36-MariaDB
 -- PHP Version: 7.2.10
 
@@ -32,7 +32,7 @@ CREATE TABLE `attendance` (
   `id` int(11) NOT NULL,
   `idnumber` varchar(50) NOT NULL,
   `name` varchar(50) NOT NULL,
-  `status` int(11) NOT NULL DEFAULT '0'
+  `status` varchar(11) NOT NULL DEFAULT 'ABSENT'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -40,7 +40,8 @@ CREATE TABLE `attendance` (
 --
 
 INSERT INTO `attendance` (`id`, `idnumber`, `name`, `status`) VALUES
-(3, '15420920', 'Vince', 0);
+(31, '15420920', 'Vince Gerald C. dela Cerna', 'PRESENT'),
+(32, '123', 'test', 'PRESENT');
 
 --
 -- Indexes for dumped tables
@@ -60,7 +61,7 @@ ALTER TABLE `attendance`
 -- AUTO_INCREMENT for table `attendance`
 --
 ALTER TABLE `attendance`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
